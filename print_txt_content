@@ -1,0 +1,15 @@
+#!/bin/bash
+
+count=0
+read -p "Enter the path to the text file: " file_path
+
+if [ -f $file_path ];
+then
+    while IFS= read -r line;
+    do
+        count=$((count + 1))
+        echo -e "Line $count: $line"
+    done < "$file_path"
+else
+    echo "File not found!"
+fi
